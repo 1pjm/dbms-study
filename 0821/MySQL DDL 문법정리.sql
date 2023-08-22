@@ -40,12 +40,39 @@ DEFAULT CHARACTER SET = utf8;
 -- 해당 페이지에서 열 추가/수정/삭제 후 반드시 Apply 버튼을 클릭하여 적용
 
 -- 2-2. SQL문 방식으로 열 추가/수정/삭제
+-- 열 추가
 alter table `human_resoureces`
 add column employee_vacation_date DATE;
 
+-- 열 수정
 alter table `human_resoureces`
 modify column employee_email VARCHAR(150) NOT NULL;
 
+-- 열 삭제
 alter table `human_resoureces`
 drop column employee_test;
+
+-- 열 이름 변경 [기존열이름 새열이름 데이터타입 (옵션)]
+alter table `human_resoureces`
+change column `employee_number` `employ_num` int;
+
+-- 제약 조건 수정
+-- 제약 조건 수정 시에는 열 이름을 소괄호 안에 작성
+-- add unique (employee_phone_number);
+
+-- unique 제약조건 추가
+alter table `human_resoureces`
+add primary key (employee_num);
+
+-- 3. 스키마/테이블 삭제(drop)
+-- 3-1. GUI 방식으로 스키마/테이블 삭제
+-- 좌측 navigator 패널에서 schemas 섹션에 삭제하고자 하는 스키마/테이블 확인
+-- 삭제하고자 하는 스키마/테이블명을 우클릭 > Drop Schema/Table 옵션 선택
+
+-- 3-2. SQL문을 사용한 스키마/테이블 삭제
+-- 스키마 삭제 문법
+-- drop database `company`;
+-- 테이블 삭제 문법
+-- 데이터베이스명.테이블명 / 데이터베이스 선택 시에는 테이블명만 작성 가능
+-- drop table `company`.`human_resoureces`;
 
