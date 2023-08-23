@@ -21,6 +21,12 @@ values('human4', '이주헌', '부산시 남구');
 insert into member
 values('human5', '배주현', '부산시 금정구');
 
+-- product 테이블의 컬럼(char, int, date, char, int)
+-- char, varchar, date 형식은 반드시 따옴표(작은, 큰)로 묶어줘야함
+-- : 따옴표를 생략하더라도 MySQL의 내장 기능을 사용하여 자동으로 문자열로 취급
+insert into product
+values('문자열', 1, '2023-08-23', '문자열', 2);
+
 -- 2. UPDATE
 -- : update 구문을 사용하여 테이블의 내용 수정 가능
 
@@ -45,3 +51,17 @@ where product_name = '바나나';
 
 delete from product
 where product_name = '빼빼로';
+
+-- char(), varchar() 사용 시 문자의 개수 지정
+-- char(), varchar() 타입의 소괄호 안의 숫자는 바이트 수를 나타냄
+-- 영어: 1바이트
+-- 한글: 3바이트
+
+-- varchar(3)
+-- : 3개의 알파벳
+-- : 1개의 한글 문자
+
+-- ex) char(5)
+-- : 'hello'
+-- ex) char(9)
+-- : '안녕'
