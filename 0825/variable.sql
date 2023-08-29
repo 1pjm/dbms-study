@@ -24,13 +24,3 @@ select @txt, mem_name
 	from members
     where height > @height;
     -- where height > 166과 동일
-
-
-
-
-
-
-
-
-
-
